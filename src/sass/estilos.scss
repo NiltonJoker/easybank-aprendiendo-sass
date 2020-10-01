@@ -35,6 +35,7 @@ body {
   max-width: calc(1115px + 1.5em);
   margin: auto;
   width: 100%;
+  box-sizing: border-box;
 }
 
 @mixin title {

@@ -1,11 +1,12 @@
 .header {
-  display: flex;
+  // display: flex;
   padding: 1em 0;
   justify-content: space-between;
   position: fixed;
   z-index: 3;
   width: 100%;
   background: white;
+  position: relative;
   &__logo {
     align-self: center;
   }

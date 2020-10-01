@@ -1,11 +1,11 @@
 .header {
-  display: flex;
   padding: 1em 0;
   justify-content: space-between;
   position: fixed;
   z-index: 3;
   width: 100%;
   background: white;
+  position: relative;
 }
 .header__logo {
   align-self: center;
@@ -89,6 +89,8 @@
 .menu {
   display: none;
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 .menu__button {
   width: 40px;
@@ -99,6 +101,47 @@
   text-decoration: none;
   color: var(--grayBlue);
   padding: 0 0.8em;
+}
+.menu__item {
+  display: flex;
+  align-items: center;
+}
+.menu__checkbox {
+  display: none;
+}
+.menu__checkbox:checked ~ .menu__button {
+  background: url("../images/icon-close.svg") no-repeat center;
+}
+.menu__checkbox:checked ~ .menu {
+  display: block;
+  position: absolute;
+  top: 100%;
+  padding: 1em;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  background: linear-gradient(to bottom, var(--darkBlue) 0%, transparent 90%);
+}
+.menu__checkbox:checked ~ .menu .menu__item {
+  display: block;
+}
+.menu__checkbox:checked ~ .menu .menu__item:first-of-type a {
+  padding-top: 2em;
+  border-radius: 0.5em 0.5em 0 0;
+}
+.menu__checkbox:checked ~ .menu .menu__item:last-of-type a {
+  padding-bottom: 2em;
+  border-radius: 0 0 0.5em 0.5em;
+}
+.menu__checkbox:checked ~ .menu a {
+  background: var(--white);
+  padding: 0.8em 1em;
+  display: block;
+  color: var(--darkBlue);
+  font-size: 1.1em;
+  border: none;
+  text-align: center;
 }
 @media screen and (min-width: 1024px) {
   .menu {
@@ -283,6 +326,7 @@ body {
   max-width: calc(1115px + 1.5em);
   margin: auto;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .title__h1 {
